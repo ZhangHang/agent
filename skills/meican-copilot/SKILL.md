@@ -45,6 +45,10 @@ Require:
 - `references/templates/*`
 - `references/legacy/*` (detailed historical source during migration)
 
+## Infra Shortcut
+- For ArgoCD image tag bump, use:
+  - `scripts/infra/argocd_bump.sh`
+
 ## Debug Execution Standard
 1. Normalize problem statement and define hypotheses.
 2. Confirm runtime path (EKS/legacy) and gateway path.

@@ -22,6 +22,7 @@ Scripts under this folder are execution helpers for meican-copilot workflows.
 - `db/db_checks.sh`: production-safe SQL suggestion wrapper.
 - `infra/argocd_context.sh`: locate ArgoCD app manifests by env/app.
 - `infra/terraform_context.sh`: locate Terraform app folders by env/app.
+- `infra/argocd_bump.sh`: wrapper for ArgoCD rollout image tag bump via local bump script.
 
 ## log/search_logs.sh Modes
 - `--mode list-apps`: list ClickHouse apps.
@@ -53,4 +54,9 @@ Examples:
   --from 2026-02-24T10:00:00+08:00 --to 2026-02-24T10:30:00+08:00 \
   --domain app-nation-client --namespace app-nation-client --name client \
   --filter request_id=abc123 --cookie-file /path/to/cookie.txt
+```
+
+ArgoCD bump (meican2):
+```bash
+./scripts/infra/argocd_bump.sh --env meican2 --server planet --version v0.88.2
 ```
