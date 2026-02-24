@@ -1,0 +1,43 @@
+# Architecture Deep Dive
+
+## Scope
+Detailed model of platform runtime, environment mapping, and investigation pathing.
+
+## Preconditions
+- Know target environment (`sandbox`, `production`, `prod`).
+- Know request type (internal gRPC vs external HTTP).
+
+## Step-by-step Procedure
+1. Identify runtime path (EKS / ECS / Lambda).
+2. Identify ingress and gateway components involved.
+3. Map service dependency edges (internal gRPC and external egress).
+4. Validate deployment source in ArgoCD and infra source in Terraform.
+5. Confirm observability hooks (log/tracing/metrics).
+
+## Real Examples
+- ArgoCD roots:
+  - `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/argocd-sandbox`
+  - `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/argocd-production`
+  - `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/argocd-prod`
+- Terraform roots:
+  - `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/terraform-sandbox`
+  - `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/terraform-production`
+  - `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/terraform-prod`
+
+## Failure Modes + Recovery
+- Mixed-environment evidence:
+  - Recover by splitting evidence collection per environment.
+- Wrong route assumption (EKS vs legacy):
+  - Recover by checking actual ingress and hostname path first.
+
+## Validation Checklist
+- Environment explicitly stated.
+- Runtime path explicitly stated.
+- ArgoCD + Terraform source paths confirmed.
+- Evidence includes at least logs/traces/config anchors.
+
+## Linked Scripts
+- `../../scripts/context/collect_context.sh`
+
+## Change History
+- 2026-02-24: initial deep-dive from consolidated platform docs.

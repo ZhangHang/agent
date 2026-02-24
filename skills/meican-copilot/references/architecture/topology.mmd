@@ -1,0 +1,12 @@
+flowchart LR
+    U["User or Client"] --> E["Nginx/OpenResty"]
+    E --> K["Kong in EKS"]
+    K --> S["Go Services (gRPC/HTTP)"]
+    S --> D["DB/Redis/MQ/AWS"]
+    S --> O["Tracing/Logs/Metrics"]
+
+    U --> L1["Route53/OpenResty"]
+    L1 --> ECS["Legacy ECS Services"]
+
+    U --> APIG["API Gateway"]
+    APIG --> L2["Legacy Lambda Services"]

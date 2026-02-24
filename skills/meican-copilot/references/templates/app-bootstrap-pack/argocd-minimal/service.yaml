@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{APP}}
+  namespace: {{NAMESPACE}}
+  labels:
+    app: {{APP}}
+    stage: all
+  annotations:
+    konghq.com/protocol: grpc
+spec:
+  ports:
+  - name: grpc
+    port: {{PORT_GRPC}}
+    targetPort: {{PORT_GRPC}}
+  selector:
+    app: {{APP}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{APP}}-stable
+  namespace: {{NAMESPACE}}
+  labels:
+    app: {{APP}}
+    stage: stable
+  annotations:
+    konghq.com/protocol: grpc
+spec:
+  ports:
+  - name: grpc
+    port: {{PORT_GRPC}}
+    targetPort: {{PORT_GRPC}}
+  selector:
+    app: {{APP}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{APP}}-canary
+  namespace: {{NAMESPACE}}
+  labels:
+    app: {{APP}}
+    stage: canary
+  annotations:
+    konghq.com/protocol: grpc
+spec:
+  ports:
+  - name: grpc
+    port: {{PORT_GRPC}}
+    targetPort: {{PORT_GRPC}}
+  selector:
+    app: {{APP}}

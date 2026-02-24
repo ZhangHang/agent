@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: {{APP}}-dr
+  namespace: {{NAMESPACE}}
+  labels:
+    app: {{APP}}
+spec:
+  host: {{APP}}.{{NAMESPACE}}.svc.cluster.local
+  subsets:
+  - name: stable
+    labels:
+      role: stable
+  - name: canary
+    labels:
+      role: canary

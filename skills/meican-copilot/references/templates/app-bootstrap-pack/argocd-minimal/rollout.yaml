@@ -1,0 +1,65 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  labels:
+    app: {{APP}}
+  name: {{APP}}
+  namespace: {{NAMESPACE}}
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: {{APP}}
+  strategy:
+    canary:
+      canaryService: {{APP}}-canary
+      stableService: {{APP}}-stable
+      maxSurge: 25%
+      maxUnavailable: 0
+      steps:
+      - setWeight: 0
+      - pause: {}
+      trafficRouting:
+        istio:
+          virtualService:
+            name: {{APP}}-vsvc
+            routes:
+            - primary
+  template:
+    metadata:
+      annotations:
+        nerds.k8s.meican.com/group: {{GROUP}}
+        nerds.k8s.meican.com/project: {{PROJECT}}
+        sidecar.istio.io/inject: "true"
+      labels:
+        app: {{APP}}
+    spec:
+      containers:
+      - name: {{APP}}-image
+        image: {{IMAGE}}
+        imagePullPolicy: IfNotPresent
+        args:
+        - --config
+        - nacos://http:nacos-hs.nacos:8848/{{GROUP}}?dataid=config.toml&group={{APP}}
+        - --watch
+        - "true"
+        env:
+        - name: APP_GROUP
+          value: {{GROUP}}
+        - name: APP_PROJECT
+          value: {{PROJECT}}
+        - name: ENV
+          value: {{ENV}}
+        ports:
+        - containerPort: {{PORT_GRPC}}
+          name: grpc
+        - containerPort: {{PORT_METRICS}}
+          name: metrics
+        resources:
+          requests:
+            cpu: 50m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 256Mi

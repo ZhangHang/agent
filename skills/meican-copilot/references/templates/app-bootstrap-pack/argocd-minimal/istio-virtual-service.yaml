@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: {{APP}}-vsvc
+  namespace: {{NAMESPACE}}
+  labels:
+    app: {{APP}}
+spec:
+  hosts:
+  - {{APP}}.{{NAMESPACE}}.svc.cluster.local
+  http:
+  - name: primary
+    route:
+    - destination:
+        host: {{APP}}-stable
+      weight: 100
+    - destination:
+        host: {{APP}}-canary
+      weight: 0

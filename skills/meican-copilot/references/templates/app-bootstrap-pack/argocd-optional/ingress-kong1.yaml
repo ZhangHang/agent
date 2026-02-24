@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{APP}}-grpc-kong1
+  namespace: {{NAMESPACE}}
+  labels:
+    app: {{APP}}
+  annotations:
+    kubernetes.io/ingress.class: "kong1"
+    konghq.com/protocols: "https"
+spec:
+  rules:
+  - host: {{HOST_BASE}}
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{APP}}
+            port:
+              name: grpc

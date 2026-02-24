@@ -1,104 +1,76 @@
 ---
 name: meican-copilot
-description: Digital work copilot for day-to-day engineering in sandbox, production(meican1), and prod(meican2). Use for incident debugging, ticket investigation, technical Q&A, architecture advice, implementation risk review, and ongoing work-document knowledge accumulation. Enforce evidence-first conclusions and production-safe database practices.
+description: Digital work copilot for engineering work in sandbox, production(meican1), and prod(meican2). Focus on evidence-first debugging, delivery safety, and continuously maintained work knowledge.
 ---
 
-# Work Copilot Workflow
+# meican-copilot Workflow
 
 ## Scope
-This skill has two pillars:
-- Skill-focused workflows (`debug`, `answer`, `advice`, `review`)
-- General work knowledge accumulation from docs added over time
+This skill is the long-term work-mode knowledge base and execution copilot.
+
+## Hard Constraints
+1. Use standard Markdown knowledge base only.
+2. Do not rely on Obsidian-specific skills or syntax.
+3. Keep conclusions evidence-based with concrete anchors.
 
 ## Mode Selection
-Select one mode first:
-- `debug`: investigate incident or user ticket with logs/traces/db/code.
-- `answer`: answer "how/why/what" questions based on known platform context.
-- `advice`: give architecture/implementation recommendations with tradeoffs.
-- `review`: evaluate a proposed change for risk, compatibility, and rollout safety.
+- `debug`: incident/ticket investigation.
+- `answer`: platform/process Q&A.
+- `advice`: architecture and implementation tradeoff guidance.
+- `review`: risk-oriented change review.
 
-If request is ambiguous, choose `debug` when there is a concrete failure signal; otherwise choose `advice`.
+If ambiguous: choose `debug` when failure signal exists, otherwise `advice`.
 
 ## Input Contract
 Require:
 - ticket id
 - env (`sandbox` / `production` / `prod`)
-- user identifiers (user_id/email/phone/order_id/request_id)
-- time window
+- identifiers (`request_id`, `order_id`, `user_id`, etc.)
+- absolute time window
 - symptom and expected behavior
 
-Ask for missing critical fields before deep investigation.
+## Routing Order
+1. Read `references/INDEX.md`.
+2. Read domain `overview.md`.
+3. Read corresponding `deep-dive` and topic playbooks.
+4. Use scripts under `scripts/` for repeatable checks.
 
-## Environment Model
-- `sandbox`: AWS account for testing/developing
-- `production` (`meican1`): AWS account with existing production services
-- `prod` (`meican2`): AWS account with new production services
-- `production`/`prod` may use tunnel access for some databases
+## Reference Tree
+- `references/architecture/*`
+- `references/development/*`
+- `references/operations/*`
+- `references/infra/*`
+- `references/capabilities/*`
+- `references/principles/*`
+- `references/templates/*`
+- `references/legacy/*` (detailed historical source during migration)
 
-Read these references before execution:
-- `references/environments.md`
-- `references/platform-architecture.md`
-- `references/database-policy.md`
-- `references/ticket-template.md`
-- `references/work-modes.md`
-- `references/knowledge-growth.md`
-- `references/codebase-roots.md`
-- `references/deploy-infra-roots.md`
-- `references/backend-project-standards.md`
-- `references/proto-strategy.md`
-- `references/grpc-gateway-playbook.md`
-- `references/engineering-delivery-playbook.md`
-- `references/business-chains.md`
-- `references/logclick-fe-api-playbook.md`
-- `references/dapi-be-gateway-failure-playbook.md`
-- `references/app-bootstrap-terraform-argocd-playbook.md`
+## Debug Execution Standard
+1. Normalize problem statement and define hypotheses.
+2. Confirm runtime path (EKS/legacy) and gateway path.
+3. Query logs and traces.
+4. Validate deploy/infra state (ArgoCD/Terraform).
+5. Validate DB state with safe policy.
+6. Confirm code path and middleware gates.
+7. Produce evidence-backed conclusion with risk and validation plan.
 
-## Deep-Dive Rule
-- Do not answer repository-specific questions from memory only.
-- Before conclusions, inspect target repository files directly (layout, config, CI, deployment, key runtime code path).
-- For infra/deploy questions, inspect ArgoCD/Terraform roots first, then service repo.
-- Always include three concrete anchors in analysis:
-  - file-structure anchor (`cmd`, `internal/net`, `internal/service`, `internal/domain`)
-  - business-logic anchor (provider -> service -> domain call chain)
-  - contract anchor (proto/http annotations, gateway registration, interceptors)
-
-## Execution Steps
-Follow `references/work-modes.md` for mode-specific steps.
-
-For `debug` mode:
-1. Normalize problem statement and define 2-3 hypotheses.
-2. Determine traffic path: external (`nginx/openresty` -> `kong` -> HTTP/gRPC service) or legacy (`route53` -> `openresty` -> ECS/Lambda).
-3. Search logs by identifiers and time window.
-4. Find traces and map cross-service path.
-5. Verify runtime/deploy state via EKS and ArgoCD context (if data is available).
-6. Check database state and recent mutations.
-7. Verify behavior in code paths (Go microservices + Java `fan` when relevant).
-8. Conclude with confidence and explicit evidence.
-
-## Database Mode
-- For non-production or when direct DB access is available: execute read-only checks.
-- For production when direct execution is restricted: provide:
-  - SQL statement(s)
-  - reason for each query
-  - expected shape of result
-  - risk level (`low`/`medium`/`high`)
-- Then wait for user to run queries and return output before concluding DB findings.
+## Database Safety
+- Non-production: read-only checks allowed.
+- Production: provide SQL suggestions only; user executes manually.
 
 ## Output Contract
 Return sections:
 - Summary
 - Scope and assumptions
 - Findings
-- Evidence (logs/traces/db/code/config)
+- Evidence anchors (files/config/logs/traces/db)
 - Recommendation
 - Risk and blast radius
 - Validation plan
 - Follow-up actions
 
 ## Guardrails
-- Do not claim root cause without at least two evidence sources.
-- Mark uncertain conclusions explicitly.
-- Use absolute timestamps and one timezone.
-- Prefer read-only DB queries by default.
-- If APIs/CLI are missing, produce a manual checklist and continue with available evidence.
-- Separate facts from inference explicitly.
+- Do not conclude root cause from one source.
+- Separate facts and inference.
+- Use one timezone with absolute timestamps.
+- Keep legacy migration map updated when moving content out of `references/legacy/`.

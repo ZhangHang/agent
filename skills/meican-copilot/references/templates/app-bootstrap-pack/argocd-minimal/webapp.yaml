@@ -1,0 +1,12 @@
+apiVersion: nerds.k8s.meican.com/v1alpha1
+kind: WebApp
+metadata:
+  name: {{APP}}
+  namespace: {{NAMESPACE}}
+  labels:
+    app: {{APP}}
+    group: "{{GROUP}}"
+    project: "{{PROJECT}}"
+spec:
+  group: {{GROUP}}
+  project: {{PROJECT}}
