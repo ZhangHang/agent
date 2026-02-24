@@ -1,0 +1,5 @@
+version: 1
+interface:
+  display_name: Meican Copilot
+  short_description: Debug incidents, answer questions, give advice, and use accumulated work docs.
+  default_prompt: Choose mode (debug, answer, advice, review), use references as needed, and respond with evidence-backed conclusions for the target environment. If production DB execution is restricted, provide SQL with reasons and wait for user results.
