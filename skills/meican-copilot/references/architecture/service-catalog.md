@@ -11,6 +11,7 @@ Maintain high-value service list and role summary for investigation routing.
 
 ## Supporting Infra Systems
 - `titan/logclick`: log query platform frontend/backend.
+- `titan/base-images`: base image source of truth for Docker/CI image upgrades and security remediation.
 - ArgoCD repos under `meican-cd/argocd-*`.
 - Terraform repos under `meican-cd/terraform-*`.
 

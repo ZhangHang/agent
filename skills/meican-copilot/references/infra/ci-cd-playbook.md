@@ -3,6 +3,14 @@
 ## Scope
 Detailed CI/CD patterns for backend/frontend services and app-level terraform stages.
 
+## Base Image Source of Truth
+- Base image repository root:
+  - `/Users/zhanghang/go/src/go.planetmeican.com/titan/base-images`
+- Use this repo to:
+  - verify available image tags
+  - trace image Dockerfile and dependency updates
+  - align service Dockerfiles and CI images with security baseline
+
 ## Backend Pattern
 - Common stage chain:
   - `init -> lint_test -> report -> terraform -> build_branch -> commit_branch_yaml -> release -> build_release`

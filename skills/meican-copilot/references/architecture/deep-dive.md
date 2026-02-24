@@ -23,6 +23,8 @@ Detailed model of platform runtime, environment mapping, and investigation pathi
   - `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/terraform-sandbox`
   - `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/terraform-production`
   - `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/terraform-prod`
+- Base-image root:
+  - `/Users/zhanghang/go/src/go.planetmeican.com/titan/base-images`
 
 ## Failure Modes + Recovery
 - Mixed-environment evidence:
