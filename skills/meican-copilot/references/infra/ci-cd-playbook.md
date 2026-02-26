@@ -16,6 +16,27 @@ Detailed CI/CD patterns for backend/frontend services and app-level terraform st
   - `init -> lint_test -> report -> terraform -> build_branch -> commit_branch_yaml -> release -> build_release`
 - Most services include templates from `meican-cd/ci-template`.
 
+## Base Image Upgrade Workflow
+1. Confirm target tags exist in:
+   - `/Users/zhanghang/go/src/go.planetmeican.com/titan/base-images`
+2. Update build Dockerfiles first (`docker/Dockerfile_*`), then CI `test:go_test` image.
+3. If `with-db-clients` tag does not exist, switch to non-db tag and install required clients in `before_script`:
+   - `postgresql-client` for `psql`
+   - `mysql-client` for `mysql`
+4. Keep DB/bootstrap scripts idempotent:
+   - `DROP TABLE IF EXISTS ...`
+   - ignore `delete-table` not-found for local dynamodb init
+5. Validate:
+   - `make lint`
+   - project test command (or CI equivalent)
+   - checkstyle/revive output alignment
+
+## Branch and Commit Rule
+- Branch naming for this campaign:
+  - `chore/upgrade-base-image`
+- Commit message prefix requirement (CI tagging rule):
+  - use `fix:` instead of `chore:`
+
 ## Test Service Patterns
 - `dapi-be`: postgres + redis.
 - `nation-client/client`: postgres + mysql + redis + dynamodb.
@@ -42,3 +63,19 @@ Detailed CI/CD patterns for backend/frontend services and app-level terraform st
   1. Restore last known manifest/config commit.
   2. Reapply terraform with validated vars.
   3. Re-run canary validation.
+
+## Lint Mismatch Troubleshooting
+- Symptom:
+  - CI `checkstyle`/`revive` reports differ from local `make lint`.
+- Root causes:
+  - `lint` job behavior comes from shared template (`meican-cd/ci-template`), not always identical to local `Makefile`.
+  - Some template checks are stricter for callback parameters and test imports.
+- Fix pattern:
+  1. Verify what CI lint actually runs from included template files.
+  2. Keep local `.golangci.yml` aligned with CI expectations.
+  3. For callback closures (for example `boot.NewOption`), rename unused parameters to `_` to satisfy `revive` `unused-parameter`.
+  4. If tests intentionally use dot imports (`ginkgo/gomega`), scope suppression explicitly in test files with:
+     - `//revive:disable:dot-imports`
+     - `//revive:enable:dot-imports`
+  5. Run formatter before lint:
+     - `golangci-lint fmt ./...`
