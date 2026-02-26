@@ -21,13 +21,6 @@ Each domain should maintain:
 7. Linked Scripts
 8. Change History
 
-## Legacy Migration Rules
-1. Migrate one legacy file at a time.
-2. Preserve all valuable details.
-3. Update `legacy/MIGRATION_MAP.md` with destination anchors.
-4. Delete the legacy file only after migration checklist passes.
-5. Update `legacy/TODO.md` after each migration step.
-
 ## Knowledge Growth Protocol
 1. New findings first go to `CHANGELOG.md`.
 2. Weekly merge findings into target domain docs.

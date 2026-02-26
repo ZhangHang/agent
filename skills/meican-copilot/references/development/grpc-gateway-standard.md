@@ -58,5 +58,5 @@ Detailed standard for defining, exposing, and validating gRPC + HTTP gateway API
 - `../../scripts/log/search_logs.sh`
 
 ## Change History
-- 2026-02-24: migrated from legacy `grpc-gateway-playbook.md` and incident findings.
-- 2026-02-26: merged legacy runtime wiring and style-difference details.
+- 2026-02-24: initialized from `planet` and `dapi-be` gateway practices and incident findings.
+- 2026-02-26: expanded runtime wiring and style-difference details.

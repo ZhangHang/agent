@@ -71,5 +71,5 @@ Detailed implementation practices for Go microservices and grpc-gateway projects
 - `../../scripts/context/trace_service_chain.sh`
 
 ## Change History
-- 2026-02-24: initialized from legacy standards and gateway playbooks.
-- 2026-02-26: merged legacy backend standards, delivery flow, and easygo/gf test details.
+- 2026-02-24: initialized from backend standards and gateway playbooks.
+- 2026-02-26: expanded backend delivery flow and easygo/gf test details.

@@ -46,7 +46,7 @@ Frontend and API usage for LogClick-based log investigation.
 - `../../scripts/trace/trace_lookup.sh`
 
 ## Change History
-- 2026-02-24: migrated from legacy `logclick-fe-api-playbook.md`.
+- 2026-02-24: initialized from `logclick-fe` API contracts.
 
 ## Script Usage
 Primary helper script:
@@ -72,4 +72,3 @@ Example: S3 search
   - `/v1/ck/apps`, `/v1/ck/fields`, `/v1/ck/search`, `/v1/ck/stream-search`
   - `/v1/s3/tree`, `/v2/s3/search`
 - Default base URL is `https://logclick-nw.planetmeican.com/api`; override with `--base-url` when needed.
-

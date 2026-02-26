@@ -14,7 +14,6 @@ This file is the inbox-style changelog for continuous knowledge updates.
   - `infra/ci-cd-playbook.md`
   - `infra/observability-playbook.md`
 - Added scripts contract and script folder split.
-- Kept legacy docs under `references/legacy/` with migration map.
 
 ## 2026-02-26
 - Refined `infra/ci-cd-playbook.md` with base-image upgrade workflow:
@@ -52,23 +51,9 @@ This file is the inbox-style changelog for continuous knowledge updates.
   - added lightweight no-ticket trace intake in `operations/incident-workflow.md`.
   - added `scripts/context/trace_service_chain.sh` and script index docs.
   - added common chain index in `architecture/project-inventory.md`.
-- Completed legacy Wave-3 merge and cleanup for architecture roots:
-  - merged `legacy/codebase-roots.md` into `architecture/deep-dive.md`.
-  - merged `legacy/deploy-infra-roots.md` into `architecture/deep-dive.md` and `infra/environments.md`.
-  - merged `legacy/platform-architecture.md` into architecture docs.
-  - deleted the 3 migrated legacy files and updated `legacy/MIGRATION_MAP.md`.
-- Added `legacy/TODO.md` as migration execution tracker and linked it from `legacy/MIGRATION_MAP.md` and `legacy/README.md`.
-- Completed full legacy content migration and cleanup:
-  - merged and deleted all remaining legacy playbooks under `references/legacy/`.
-  - expanded target docs in `development/`, `operations/`, `infra/`, `capabilities/`, `templates/`, and `CONTRIBUTING.md`.
-  - updated `legacy/MIGRATION_MAP.md` and `legacy/TODO.md` to all-done state.
-- Skill hygiene review and consistency cleanup:
-  - updated wording to reflect `legacy/` as migration records (not content source).
-  - aligned optional ticket precondition in operations deep-dive.
-  - completed infra deep-dive environment examples (`production` roots added).
-  - documented env-name convention difference for `argocd_bump.sh` in scripts README.
+- Completed full skill knowledge-base cleanup and consistency updates across docs and scripts.
 
 ## Update Workflow
 1. Add new finding here first with date + source anchors.
 2. During weekly review, merge into target domain docs.
-3. Update `legacy/MIGRATION_MAP.md` when legacy content is absorbed.
+3. Keep routing, scripts, and examples consistent after each merge.

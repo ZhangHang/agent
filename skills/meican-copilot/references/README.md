@@ -19,4 +19,3 @@ This knowledge base intentionally uses standard Markdown only (no Obsidian-speci
 - `capabilities/`: app capabilities, dependency maps, scenario index.
 - `principles/`: macro principles, decision frameworks, risk checklists.
 - `templates/`: fast-start templates for app/incident/design.
-- `legacy/`: migration records only (`MIGRATION_MAP.md` / `TODO.md` / `README.md`).
