@@ -15,6 +15,7 @@ This skill is the long-term work-mode knowledge base and execution copilot.
 
 ## Mode Selection
 - `debug`: incident/ticket investigation.
+- `trace`: business call-chain tracing across provider/service/domain/downstream services.
 - `answer`: platform/process Q&A.
 - `advice`: architecture and implementation tradeoff guidance.
 - `review`: risk-oriented change review.
@@ -29,11 +30,17 @@ Require:
 - absolute time window
 - symptom and expected behavior
 
+Lightweight trace mode (no ticket):
+- service/repo
+- method name
+- expected downstream services
+
 ## Routing Order
 1. Read `references/INDEX.md`.
 2. Read domain `overview.md`.
 3. Read corresponding `deep-dive` and topic playbooks.
 4. Use scripts under `scripts/` for repeatable checks.
+5. For chain tracing, run `scripts/context/trace_service_chain.sh` first.
 
 ## Reference Tree
 - `references/architecture/*`
@@ -61,6 +68,23 @@ Require:
 5. Validate DB state with safe policy.
 6. Confirm code path and middleware gates.
 7. Produce evidence-backed conclusion with risk and validation plan.
+
+## Trace Execution Standard
+1. Locate entrypoint (`provider`/`handler`) by method name.
+2. Expand into `service` and `domain` calls.
+3. Confirm downstream RPC names via config and rpc client keys.
+4. Distinguish facts and inferences in the chain output.
+5. Return ordered chain with file anchors.
+
+## Service Interface Classes
+- `admin service`: management-side APIs; metadata must carry operator/admin identity.
+- `biz service`: to-C/BFF-facing APIs; metadata must carry end-user identity.
+- `internal service`: service-to-service APIs for backend integration.
+- During debug, always verify metadata requirement before concluding business failure.
+
+## Git Conventions (Current Team Rule)
+- Branch naming: keep `chore/*` for routine maintenance branches.
+- Commit prefix: use `fix:` for CI tag/automation requirements in current campaign.
 
 ## Database Safety
 - Non-production: read-only checks allowed.

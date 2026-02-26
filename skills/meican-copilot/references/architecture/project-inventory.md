@@ -3,6 +3,17 @@
 ## Purpose
 Consolidated inventory of repositories provided by user, with path and functional summary.
 
+## Common Chain Index
+- verify dine-in order:
+  - `/Users/zhanghang/go/src/go.planetmeican.com/planet/ops/internal/net/grpc/provider/internal.go`
+  - downstream: `member`, `id-card`, `idmapping` (and conditional `id-card-adapter` via `id-card`).
+- id mapping lookup:
+  - `/Users/zhanghang/go/src/go.planetmeican.com/planet/idmapping`
+  - proto: `/Users/zhanghang/go/src/go.planetmeican.com/planet/idmapping-proto`
+- card identity resolution:
+  - `/Users/zhanghang/go/src/go.planetmeican.com/nation-client/id-card`
+  - adapter path: `/Users/zhanghang/go/src/go.planetmeican.com/nation-client/id-card-adapter`
+
 ## Planet Domain
 - `/Users/zhanghang/go/src/go.planetmeican.com/planet/planet`
   - Internal management backend.

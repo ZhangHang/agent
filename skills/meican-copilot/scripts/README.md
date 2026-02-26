@@ -17,6 +17,7 @@ Scripts under this folder are execution helpers for meican-copilot workflows.
 
 ## Script Index
 - `context/collect_context.sh`: normalize debug context header.
+- `context/trace_service_chain.sh`: locate call-chain anchors by `service + method`.
 - `log/search_logs.sh`: real LogClick API query wrapper.
 - `trace/trace_lookup.sh`: trace lookup template.
 - `db/db_checks.sh`: production-safe SQL suggestion wrapper.
@@ -59,4 +60,11 @@ Examples:
 ArgoCD bump (meican2):
 ```bash
 ./scripts/infra/argocd_bump.sh --env meican2 --server planet --version v0.88.2
+```
+
+Trace service chain:
+```bash
+./scripts/context/trace_service_chain.sh \
+  --service planet/ops \
+  --method VerifyDineInOrder
 ```

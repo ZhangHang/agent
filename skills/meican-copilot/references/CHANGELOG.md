@@ -45,6 +45,13 @@ This file is the inbox-style changelog for continuous knowledge updates.
   - conditional `id-card` -> `id-card-adapter` adapter-card path.
   - Mermaid sequence diagram and failure hotspots.
   - updated routing in `capabilities/scenario-index.md` and root `INDEX.md`.
+- Upgraded `meican-copilot` core behavior and workflow guidance:
+  - added `trace` mode in `SKILL.md`.
+  - added `admin` / `biz` / `internal` service-interface class guidance.
+  - added branch/commit convention (`chore/*` branch + `fix:` commit).
+  - added lightweight no-ticket trace intake in `operations/incident-workflow.md`.
+  - added `scripts/context/trace_service_chain.sh` and script index docs.
+  - added common chain index in `architecture/project-inventory.md`.
 
 ## Update Workflow
 1. Add new finding here first with date + source anchors.
