@@ -17,9 +17,11 @@ Detailed deployment and infra coupling model for app delivery.
 ## Real Examples
 - ArgoCD:
   - `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/argocd-sandbox`
+  - `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/argocd-production`
   - `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/argocd-prod`
 - Terraform:
   - `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/terraform-sandbox`
+  - `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/terraform-production`
   - `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/terraform-prod`
 
 ## Failure Modes + Recovery

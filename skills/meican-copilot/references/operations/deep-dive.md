@@ -4,7 +4,7 @@
 Comprehensive incident workflow from signal to validated conclusion.
 
 ## Preconditions
-- Ticket ID.
+- Ticket ID (optional for quick trace/debug).
 - Environment.
 - Time range.
 - At least one business identifier.

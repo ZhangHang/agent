@@ -62,6 +62,11 @@ This file is the inbox-style changelog for continuous knowledge updates.
   - merged and deleted all remaining legacy playbooks under `references/legacy/`.
   - expanded target docs in `development/`, `operations/`, `infra/`, `capabilities/`, `templates/`, and `CONTRIBUTING.md`.
   - updated `legacy/MIGRATION_MAP.md` and `legacy/TODO.md` to all-done state.
+- Skill hygiene review and consistency cleanup:
+  - updated wording to reflect `legacy/` as migration records (not content source).
+  - aligned optional ticket precondition in operations deep-dive.
+  - completed infra deep-dive environment examples (`production` roots added).
+  - documented env-name convention difference for `argocd_bump.sh` in scripts README.
 
 ## Update Workflow
 1. Add new finding here first with date + source anchors.

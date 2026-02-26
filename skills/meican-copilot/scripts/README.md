@@ -61,6 +61,9 @@ ArgoCD bump (meican2):
 ```bash
 ./scripts/infra/argocd_bump.sh --env meican2 --server planet --version v0.88.2
 ```
+Note:
+- `argocd_bump.sh` uses `meican2|meican1|sandbox`.
+- most other scripts use `prod|production|sandbox`.
 
 Trace service chain:
 ```bash

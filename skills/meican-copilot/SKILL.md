@@ -50,7 +50,7 @@ Lightweight trace mode (no ticket):
 - `references/capabilities/*`
 - `references/principles/*`
 - `references/templates/*`
-- `references/legacy/*` (detailed historical source during migration)
+- `references/legacy/*` (migration records)
 
 ## Infra Shortcut
 - For ArgoCD image tag bump, use:
@@ -112,4 +112,4 @@ Return sections:
 - Do not conclude root cause from one source.
 - Separate facts and inference.
 - Use one timezone with absolute timestamps.
-- Keep legacy migration map updated when moving content out of `references/legacy/`.
+- Keep legacy migration records (`references/legacy/MIGRATION_MAP.md`, `references/legacy/TODO.md`) updated for future archival merges.
