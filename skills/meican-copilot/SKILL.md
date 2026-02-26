@@ -49,6 +49,10 @@ Require:
 - For ArgoCD image tag bump, use:
   - `scripts/infra/argocd_bump.sh`
 
+## Project Inventory
+- Full repository list and path/function mapping:
+  - `references/architecture/project-inventory.md`
+
 ## Debug Execution Standard
 1. Normalize problem statement and define hypotheses.
 2. Confirm runtime path (EKS/legacy) and gateway path.

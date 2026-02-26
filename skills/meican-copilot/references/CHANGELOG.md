@@ -29,6 +29,16 @@ This file is the inbox-style changelog for continuous knowledge updates.
   - `/Users/zhanghang/go/src/go.planetmeican.com/developer/dapi-adapter`
   - `/Users/zhanghang/go/src/go.planetmeican.com/nation-client/area`
   - `/Users/zhanghang/go/src/go.planetmeican.com/be-meican-app/payment-adapter`
+- Added full user-provided project registry:
+  - `architecture/project-inventory.md`
+  - linked from `INDEX.md` and `architecture/service-catalog.md`
+- Refined domain semantics from user:
+  - `nation-client/client`: client entity with many plans/config.
+  - `nation-client/area`: area data provider.
+  - `planet`: internal management BE and microservice aggregator.
+  - common interface classes: `admin` / `biz` / `internal` with distinct meta requirements.
+  - `regulation`: privacy/agreement service.
+  - `idmapping`: legacy ID to snowflake ID mapping role.
 
 ## Update Workflow
 1. Add new finding here first with date + source anchors.

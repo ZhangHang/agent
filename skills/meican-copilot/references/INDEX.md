@@ -28,6 +28,7 @@
 2. `architecture/deep-dive.md`
 3. `architecture/topology.mmd`
 4. `architecture/service-catalog.md`
+5. `architecture/project-inventory.md`
 
 ## Domain Overviews
 - Architecture: `architecture/overview.md`

@@ -2,6 +2,8 @@
 
 ## Purpose
 Maintain high-value service list and role summary for investigation routing.
+For full user-provided repository coverage, see:
+- `project-inventory.md`
 
 ## Core Services
 - `planet/planet`: grpc-gateway style app, permission and customer-tool related capabilities.
