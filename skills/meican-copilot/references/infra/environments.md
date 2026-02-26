@@ -17,5 +17,9 @@
 
 ## Connectivity Notes
 - `production` and `prod` may require tunnel for selected DBs.
-- `argocd-production` is the legacy production account deployment root (`meican1`).
-- `argocd-prod` maps to new production account deployment root (`meican2` / `eks-fan2`).
+- `argocd-production` is legacy production account root (`meican1`).
+- `argocd-prod` maps to new production account root (`meican2` / `eks-fan2`).
+
+## Investigation Rules
+1. Always state environment first in findings.
+2. Do not mix evidence from different environments in one conclusion.

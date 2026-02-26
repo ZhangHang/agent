@@ -29,8 +29,15 @@ spec:
             actions: [Produce, Consume]
 ```
 
-## Operational Notes
-1. Keep topic names stable and explicit.
-2. Declare cross-app subject permissions explicitly.
-3. Keep dashboard UID/folder UID stable to avoid duplicates.
-4. Treat UI manual edits as non-source-of-truth if Terraform manages dashboards.
+## MQ Field Semantics
+1. `mq.namespace`: MQ business namespace (not k8s namespace).
+2. `tenant`: usually `public`.
+3. `topics`: declarative topic shape.
+4. `subjects/actions`: declarative produce/consume authorization intent.
+
+## Practical Rules
+1. Add only required topics and keep naming stable (`*-DLQ`, `*-RLQ`, `*-RETRY`).
+2. Declare producers/consumers explicitly by subject.
+3. Keep `partitions` aligned with throughput and ordering needs.
+4. Keep env manifests consistent unless intentionally different.
+5. Keep dashboard UID/folder UID stable to avoid duplicates.

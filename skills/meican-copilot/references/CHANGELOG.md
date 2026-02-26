@@ -58,6 +58,10 @@ This file is the inbox-style changelog for continuous knowledge updates.
   - merged `legacy/platform-architecture.md` into architecture docs.
   - deleted the 3 migrated legacy files and updated `legacy/MIGRATION_MAP.md`.
 - Added `legacy/TODO.md` as migration execution tracker and linked it from `legacy/MIGRATION_MAP.md` and `legacy/README.md`.
+- Completed full legacy content migration and cleanup:
+  - merged and deleted all remaining legacy playbooks under `references/legacy/`.
+  - expanded target docs in `development/`, `operations/`, `infra/`, `capabilities/`, `templates/`, and `CONTRIBUTING.md`.
+  - updated `legacy/MIGRATION_MAP.md` and `legacy/TODO.md` to all-done state.
 
 ## Update Workflow
 1. Add new finding here first with date + source anchors.

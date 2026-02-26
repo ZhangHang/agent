@@ -26,6 +26,20 @@ Each domain should maintain:
 2. Preserve all valuable details.
 3. Update `legacy/MIGRATION_MAP.md` with destination anchors.
 4. Delete the legacy file only after migration checklist passes.
+5. Update `legacy/TODO.md` after each migration step.
+
+## Knowledge Growth Protocol
+1. New findings first go to `CHANGELOG.md`.
+2. Weekly merge findings into target domain docs.
+3. Keep facts and inferences separated.
+4. Include environment scope (`sandbox` / `production` / `prod`).
+
+## New Repository Intake Protocol
+When user provides a new project path:
+1. Record path under `architecture/project-inventory.md`.
+2. Inspect layout, README, Makefile/CI/docker/argo/config, and interface files.
+3. Extract purpose, runtime model, integration points, and debug entrypoints.
+4. Persist findings before using them in advice.
 
 ## Script Rules
 1. Scripts are read-only by default.

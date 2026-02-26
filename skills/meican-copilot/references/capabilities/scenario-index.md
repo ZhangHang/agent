@@ -7,6 +7,8 @@
 4. Incident debugging (log + trace + db + code).
 5. CI pipeline + dashboard/alert provisioning.
 6. Dine-in order verify call-chain tracing (`planet/ops` -> `member`/`id-card`/`idmapping`).
+7. dapi-be gateway pre-business failure triage (rate/sign/endpoint).
 
 ## Routing
-Use `INDEX.md` for detailed domain routing per scenario.
+- Core dependency chains: `dependency-map.md`
+- Domain-wide entry routing: `../INDEX.md`

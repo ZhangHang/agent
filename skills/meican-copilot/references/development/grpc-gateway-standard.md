@@ -15,11 +15,25 @@ Detailed standard for defining, exposing, and validating gRPC + HTTP gateway API
 5. Keep authorization/grant logic in gRPC interceptors, not in gateway transport layer.
 6. Validate end-to-end path: `HTTP -> gateway -> gRPC -> provider -> service -> domain`.
 
+## Proto-side Requirements
+- Import `google/api/annotations.proto`.
+- Add per-method HTTP mapping.
+- Keep operation metadata consistent with method behavior.
+
+## Runtime Wiring Pattern
+- `cmd/main.go` starts gRPC and gateway server.
+- `internal/net/grpc/register.go` registers providers.
+- `internal/net/grpcgateway/register.go` registers gateway handlers.
+
+## Two Styles In Current Repos
+- `planet`: explicit static handler registration and straightforward error mapping.
+- `dapi-be`: dynamic metadata loading and middleware-heavy gateway pipeline.
+
 ## Real Examples
 - `planet` style:
   - `/Users/zhanghang/go/src/go.planetmeican.com/planet/planet/internal/net/grpcgateway/register.go`
   - `/Users/zhanghang/go/src/go.planetmeican.com/planet/planet/internal/net/grpc/register.go`
-- `dapi-be` style (dynamic metadata + middleware-heavy):
+- `dapi-be` style:
   - `/Users/zhanghang/go/src/go.planetmeican.com/developer/dapi-be/internal/net/grpcgateway/register.go`
   - `/Users/zhanghang/go/src/go.planetmeican.com/developer/dapi-be/internal/service/proto/proto.go`
 
@@ -40,7 +54,9 @@ Detailed standard for defining, exposing, and validating gRPC + HTTP gateway API
 
 ## Linked Scripts
 - `../../scripts/context/collect_context.sh`
+- `../../scripts/context/trace_service_chain.sh`
 - `../../scripts/log/search_logs.sh`
 
 ## Change History
 - 2026-02-24: migrated from legacy `grpc-gateway-playbook.md` and incident findings.
+- 2026-02-26: merged legacy runtime wiring and style-difference details.

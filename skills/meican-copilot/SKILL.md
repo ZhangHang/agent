@@ -76,6 +76,13 @@ Lightweight trace mode (no ticket):
 4. Distinguish facts and inferences in the chain output.
 5. Return ordered chain with file anchors.
 
+## Mode Output Emphasis
+- `debug`: root cause, evidence chain, fix and validation.
+- `trace`: ordered call chain and downstream boundaries.
+- `answer`: direct answer first, then constraints and quick verification.
+- `advice`: recommended option, tradeoffs, rollout and fallback.
+- `review`: findings by severity, residual risk, missing validations.
+
 ## Service Interface Classes
 - `admin service`: management-side APIs; metadata must carry operator/admin identity.
 - `biz service`: to-C/BFF-facing APIs; metadata must carry end-user identity.

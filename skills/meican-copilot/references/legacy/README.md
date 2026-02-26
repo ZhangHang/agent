@@ -1,17 +1,11 @@
 # Legacy Detailed References
 
-This folder keeps detailed historical documents during migration.
+状态：历史文档已全部融合到新结构，源文件已删除。
 
-## Deletion Gate (strict)
-Delete a legacy file only when all checks pass:
-1. key procedures are preserved in new docs.
-2. commands/path anchors are preserved.
-3. failure modes and recovery are preserved.
-4. at least one concrete example anchor is preserved.
-5. `references/INDEX.md` routes to the new destination.
-6. migration status is updated in `MIGRATION_MAP.md`.
+保留文件说明：
+- `MIGRATION_MAP.md`: 融合去向记录。
+- `TODO.md`: 迁移执行与验收记录。
 
-## Rule
-- Migrate one legacy file at a time.
-- Prefer preserving detail over summarizing.
-- Update `TODO.md` after each migration step for progress tracking.
+后续规则：
+- 新增历史文档先进入此目录。
+- 达到删除门槛后再合并删除。
