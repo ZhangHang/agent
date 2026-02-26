@@ -15,6 +15,11 @@
 4. `operations/db-query-policy.md`
 5. `operations/common-failure-patterns.md`
 
+### Trace a business call chain (example: verify dine-in order)
+1. `capabilities/dependency-map.md`
+2. `capabilities/scenario-index.md`
+3. `architecture/project-inventory.md`
+
 ### Add/adjust internal API access (gRPC)
 1. `development/grpc-gateway-standard.md`
 2. `infra/network-access-control.md`

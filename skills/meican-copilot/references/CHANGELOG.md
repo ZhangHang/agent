@@ -39,6 +39,12 @@ This file is the inbox-style changelog for continuous knowledge updates.
   - common interface classes: `admin` / `biz` / `internal` with distinct meta requirements.
   - `regulation`: privacy/agreement service.
   - `idmapping`: legacy ID to snowflake ID mapping role.
+- Added detailed dine-in order verification dependency chain:
+  - `planet/ops` `VerifyDineInOrder` orchestration anchors.
+  - downstream service relations: `member`, `id-card`, `idmapping`.
+  - conditional `id-card` -> `id-card-adapter` adapter-card path.
+  - Mermaid sequence diagram and failure hotspots.
+  - updated routing in `capabilities/scenario-index.md` and root `INDEX.md`.
 
 ## Update Workflow
 1. Add new finding here first with date + source anchors.
