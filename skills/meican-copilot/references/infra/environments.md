@@ -8,8 +8,8 @@
 ## Deploy Roots
 - ArgoCD:
   - sandbox: `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/argocd-sandbox`
-  - production: `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/argocd-production`
-  - prod: `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/argocd-prod`
+  - production (`meican1`): `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/argocd-production`
+  - prod (`meican2`): `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/argocd-prod`
 - Terraform:
   - sandbox: `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/terraform-sandbox`
   - production: `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/terraform-production`
@@ -17,3 +17,5 @@
 
 ## Connectivity Notes
 - `production` and `prod` may require tunnel for selected DBs.
+- `argocd-production` is the legacy production account deployment root (`meican1`).
+- `argocd-prod` maps to new production account deployment root (`meican2` / `eks-fan2`).

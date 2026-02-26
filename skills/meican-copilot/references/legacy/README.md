@@ -14,3 +14,4 @@ Delete a legacy file only when all checks pass:
 ## Rule
 - Migrate one legacy file at a time.
 - Prefer preserving detail over summarizing.
+- Update `TODO.md` after each migration step for progress tracking.

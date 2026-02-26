@@ -52,6 +52,12 @@ This file is the inbox-style changelog for continuous knowledge updates.
   - added lightweight no-ticket trace intake in `operations/incident-workflow.md`.
   - added `scripts/context/trace_service_chain.sh` and script index docs.
   - added common chain index in `architecture/project-inventory.md`.
+- Completed legacy Wave-3 merge and cleanup for architecture roots:
+  - merged `legacy/codebase-roots.md` into `architecture/deep-dive.md`.
+  - merged `legacy/deploy-infra-roots.md` into `architecture/deep-dive.md` and `infra/environments.md`.
+  - merged `legacy/platform-architecture.md` into architecture docs.
+  - deleted the 3 migrated legacy files and updated `legacy/MIGRATION_MAP.md`.
+- Added `legacy/TODO.md` as migration execution tracker and linked it from `legacy/MIGRATION_MAP.md` and `legacy/README.md`.
 
 ## Update Workflow
 1. Add new finding here first with date + source anchors.

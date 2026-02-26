@@ -5,6 +5,9 @@ Status legend:
 - `in-progress`: partially merged, keep legacy as source backup.
 - `todo`: not merged yet.
 
+Tracking:
+- execution checklist and current queue: `TODO.md`
+
 ## Wave 1
 - `logclick-fe-api-playbook.md` -> `../operations/log-query-playbook.md` (`done`)
 - `grpc-gateway-playbook.md` -> `../development/grpc-gateway-standard.md` (`done`)
@@ -20,9 +23,9 @@ Status legend:
 
 ## Wave 3
 - `environments.md` -> `../infra/environments.md` (`done`)
-- `platform-architecture.md` -> `../architecture/overview.md`, `../architecture/deep-dive.md` (`in-progress`)
-- `codebase-roots.md` -> `../architecture/deep-dive.md` (`in-progress`)
-- `deploy-infra-roots.md` -> `../architecture/deep-dive.md`, `../infra/environments.md` (`in-progress`)
+- `platform-architecture.md` -> `../architecture/overview.md`, `../architecture/deep-dive.md` (`done`)
+- `codebase-roots.md` -> `../architecture/deep-dive.md` (`done`)
+- `deploy-infra-roots.md` -> `../architecture/deep-dive.md`, `../infra/environments.md` (`done`)
 - `backend-project-standards.md` -> `../development/deep-dive.md` (`in-progress`)
 - `engineering-delivery-playbook.md` -> `../development/deep-dive.md` (`in-progress`)
 - `proto-strategy.md` -> `../development/proto-strategy.md` (`done`)

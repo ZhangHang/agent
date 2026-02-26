@@ -14,6 +14,20 @@ Detailed model of platform runtime, environment mapping, and investigation pathi
 4. Validate deployment source in ArgoCD and infra source in Terraform.
 5. Confirm observability hooks (log/tracing/metrics).
 
+## Codebase Roots and Discovery
+- Primary roots:
+  - `/Users/zhanghang/go/src/go.planetmeican.com`
+  - `/Users/zhanghang/meican`
+- If input contains `go.planetmiecan.com`, treat it as likely typo and confirm `go.planetmeican.com`.
+
+Quick discovery commands:
+```bash
+ls -la /Users/zhanghang/go/src/go.planetmeican.com
+ls -la /Users/zhanghang/meican
+rg --files /Users/zhanghang/go/src/go.planetmeican.com | head -n 50
+rg --files /Users/zhanghang/meican | head -n 50
+```
+
 ## Real Examples
 - ArgoCD roots:
   - `/Users/zhanghang/go/src/go.planetmeican.com/meican-cd/argocd-sandbox`
@@ -43,3 +57,4 @@ Detailed model of platform runtime, environment mapping, and investigation pathi
 
 ## Change History
 - 2026-02-24: initial deep-dive from consolidated platform docs.
+- 2026-02-26: merged legacy `codebase-roots.md`, `platform-architecture.md`, and `deploy-infra-roots.md` details.
