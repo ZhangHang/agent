@@ -1,0 +1,5 @@
+version: 1
+interface:
+  display_name: Infra Context
+  short_description: Locate ArgoCD/Terraform paths for env and app quickly.
+  default_prompt: Run argocd_context.sh and/or terraform_context.sh and summarize candidate deployment roots.

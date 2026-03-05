@@ -1,0 +1,5 @@
+version: 1
+interface:
+  display_name: Work Knowledge Router
+  short_description: Route work questions to the personal knowledge library and the right micro skill.
+  default_prompt: Start from knowledge/index.md, answer from domain docs, and only invoke a micro skill when execution is needed.

@@ -16,14 +16,21 @@ Scripts under this folder are execution helpers for meican-copilot workflows.
 - `--id <request_id|user_id|order_id>`
 
 ## Script Index
-- `context/collect_context.sh`: normalize debug context header.
-- `context/trace_service_chain.sh`: locate call-chain anchors by `service + method`.
-- `log/search_logs.sh`: real LogClick API query wrapper.
-- `trace/trace_lookup.sh`: trace lookup template.
-- `db/db_checks.sh`: production-safe SQL suggestion wrapper.
-- `infra/argocd_context.sh`: locate ArgoCD app manifests by env/app.
-- `infra/terraform_context.sh`: locate Terraform app folders by env/app.
-- `infra/argocd_bump.sh`: wrapper for ArgoCD rollout image tag bump via local bump script.
+- active:
+  - `context/collect_context.sh`: normalize debug context header.
+  - `context/trace_service_chain.sh`: locate call-chain anchors by `service + method`.
+  - `infra/argocd_context.sh`: locate ArgoCD app manifests by env/app.
+  - `infra/terraform_context.sh`: locate Terraform app folders by env/app.
+- inactive/parked:
+  - `log/search_logs.sh`: real LogClick API query wrapper (not default now).
+  - `trace/trace_lookup.sh`: trace lookup template.
+  - `db/db_checks.sh`: production-safe SQL suggestion wrapper (non-prod template now).
+- optional:
+  - `infra/argocd_bump.sh`: rollout image tag bump wrapper (non-default path).
+
+Source-of-truth script contracts now live under:
+- `/Users/zhanghang/repo/obsidian/shared/agent/knowledge/domains/operations/scripts/`
+- `/Users/zhanghang/repo/obsidian/shared/agent/knowledge/domains/infra/scripts/`
 
 ## log/search_logs.sh Modes
 - `--mode list-apps`: list ClickHouse apps.

@@ -118,3 +118,13 @@ status:
 ## 后续可扩展
 
 - 若你需要自动化复盘/提醒，告诉我具体时间和频率，我会帮你设置自动任务。
+
+## 工作知识库路由（新增）
+
+- 工作相关知识统一以 `knowledge/` 为事实来源，不在 skill 内重复维护。
+- 排查问题时优先走 `knowledge/index.md`，再进入 `knowledge/domains/*`。
+- 只有在需要执行稳定脚本时再调用小 skill：
+  - `incident-context`
+  - `service-trace`
+  - `infra-context`
+- `search_logs.sh`、`trace_lookup.sh`、`db_checks.sh` 当前视为 parked/inactive，不走默认路径。

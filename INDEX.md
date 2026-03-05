@@ -23,3 +23,7 @@ tags: [index]
 ## 模板
 
 - [[Meta/Templates/通用笔记]]
+
+## 工作知识库
+
+- [[knowledge/index|Work Knowledge Index]]

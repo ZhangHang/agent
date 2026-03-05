@@ -1,0 +1,5 @@
+version: 1
+interface:
+  display_name: Incident Context
+  short_description: Normalize incident context and produce a stable debug header.
+  default_prompt: Use collect_context.sh with explicit env and time range, then output the normalized incident context.

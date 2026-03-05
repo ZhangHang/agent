@@ -1,0 +1,5 @@
+version: 1
+interface:
+  display_name: Service Trace
+  short_description: Trace service call-chain anchors by service and method.
+  default_prompt: Run trace_service_chain.sh, then return an ordered call chain with file anchors and fact/inference split.
