@@ -3,6 +3,9 @@
 ## Scope
 Frontend and API usage for LogClick-based log investigation.
 
+Related deep-dive:
+- `verify-dine-in-order-debug.md` for `planet.ops.v1.InternalService/VerifyDineInOrder` across `ops` / `client` / `member` / `id-card`.
+
 ## Preconditions
 - Access to `logclick-fe` and target environment session.
 - Absolute time range and primary identifiers.

@@ -1,7 +1,12 @@
-# Project Inventory (Given by User)
+# Project Inventory
 
 ## Purpose
-Consolidated inventory of repositories provided by user, with path and functional summary.
+Consolidated inventory of repositories with path and functional summary.
+
+Use this as the raw inventory.
+
+For the working entrypoint, start from:
+- `project-map.md`
 
 ## Common Chain Index
 - verify dine-in order:
@@ -84,3 +89,20 @@ Consolidated inventory of repositories provided by user, with path and functiona
 ## Business App Domain
 - `/Users/zhanghang/go/src/go.planetmeican.com/be-meican-app/payment-adapter`
   - Payment adapter service for new payment interfaces.
+
+## Frontend Domain
+- `/Users/zhanghang/meican/planet-ops-frontend`
+  - Planet 项目的 ops frontend。
+  - 通过 `@fe/planet-sf-tools` SDK 在 DAPI 相关页面打开 SF Tools。
+  - SFTools 入口锚点：
+    - `/Users/zhanghang/meican/planet-ops-frontend/src_v3/components/common/sf-tools/index.js`
+    - `/Users/zhanghang/meican/planet-ops-frontend/src/components/DAPI/v3.tsx`
+    - `/Users/zhanghang/meican/planet-ops-frontend/src/components/DAPI/DevelopmentTeamDetail/v3.tsx`
+- `/Users/zhanghang/meican/web-sdk-raven`
+  - 包含 SF Tools 前端页面实现（本次仅纳入 sftools 范围）。
+  - SFTools runtime 锚点：
+    - `/Users/zhanghang/meican/web-sdk-raven/src/pages/sftools/main.js`
+    - `/Users/zhanghang/meican/web-sdk-raven/src/pages/sftools/router.js`
+    - `/Users/zhanghang/meican/web-sdk-raven/src/pages/sftools/const/api.js`
+  - 部署锚点：
+    - `/Users/zhanghang/meican/web-sdk-raven/package.json` (`deploy_prod` -> `s3://planet/planet-sdk-iframes`)

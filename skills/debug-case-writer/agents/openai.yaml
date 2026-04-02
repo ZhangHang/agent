@@ -1,0 +1,5 @@
+version: 1
+interface:
+  display_name: Debug Case Writer
+  short_description: Turn a real debug session into a reusable markdown case note with evidence and replayable queries.
+  default_prompt: Write a reusable debug case in markdown. Prefer a 1-2 round query path, keep facts and inference separate, include key identifiers, downstream flow, code anchors, and replayable commands.

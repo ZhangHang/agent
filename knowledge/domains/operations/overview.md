@@ -1,15 +1,25 @@
 # Operations Overview
 
 ## Scope
-Incident handling, evidence collection, and high-frequency troubleshooting workflows.
+这个域回答：
+- 如何 debug 一条链路
+- 如何收集证据
+- 如何把一次调查沉淀成 case 和长期知识
 
-## Entry Points
-- Detailed flow: `deep-dive.md`
-- Standard incident template: `incident-workflow.md`
-- Log query: `log-query-playbook.md`
-- Tracing: `tracing-playbook.md`
-- DB checks: `db-query-policy.md`
-- Known failures: `common-failure-patterns.md`
+## 从哪里开始
+- 标准 debug 流程：`debug-workflow.md`
+- incident 入口：`incident-workflow.md`
+- 日志查询：`log-query-playbook.md`
+- trace 调试：`tracing-playbook.md`
+- dapi 签名排查：`dapi-be-signature-debug.md`
+- VerifyDineInOrder 参考：`verify-dine-in-order-debug.md`
+- 常见失败模式：`common-failure-patterns.md`
+
+## 这个域应承载的内容
+- 证据获取与验证
+- facts / inference 的分层
+- 日志 / trace / DB / code anchors 的组合使用
+- 个案沉淀与复用
 
 ## Script Registry
 ### Active
@@ -20,7 +30,3 @@ Incident handling, evidence collection, and high-frequency troubleshooting workf
 - `scripts/search-logs.md`
 - `scripts/trace-lookup.md`
 - `scripts/db-checks.md`
-
-Activation criteria for inactive scripts:
-1. real usage >= 3 times in recent 30 days, and
-2. output shape is stable enough for repeatable automation.

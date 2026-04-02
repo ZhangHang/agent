@@ -10,6 +10,7 @@
 3. Update `../index.md` when routing changes.
 4. Validate script contracts and active/inactive status.
 5. Prune merged inbox entries and keep unresolved items.
+6. Check new durable docs against `../domains/development/code-distillation-method.md`.
 
 ## Quality Gate
 Run:

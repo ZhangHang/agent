@@ -52,3 +52,34 @@ Each new chain entry must include:
 2. call sequence
 3. dependency boundary
 4. failure hotspots
+
+## Chain D: Planet Ops Frontend -> SFTools (Iframe SDK)
+### Trigger
+- DAPI 页面进入内部工具或开发团队相关功能时触发。
+- 入口锚点：
+  - `/Users/zhanghang/meican/planet-ops-frontend/src/components/DAPI/v3.tsx`
+  - `/Users/zhanghang/meican/planet-ops-frontend/src/components/DAPI/DevelopmentTeamDetail/v3.tsx`
+
+### Call Sequence
+1. `planet-ops-frontend` 渲染 `SFTools` wrapper 组件：
+   - `/Users/zhanghang/meican/planet-ops-frontend/src_v3/components/common/sf-tools/index.js`
+2. wrapper 初始化 `@fe/planet-sf-tools`：
+   - 传入 `platform/env/token`
+   - 调用 `render(targetRoute)`
+3. SDK 加载 `web-sdk-raven` 的 `sftools` 页面实现：
+   - `/Users/zhanghang/meican/web-sdk-raven/src/pages/sftools/main.js`
+   - `/Users/zhanghang/meican/web-sdk-raven/src/pages/sftools/router.js`
+4. `sftools` 页面通过 `postMessage` 与父页面同步路由/close 事件。
+5. `sftools` 调用 planet backend API：
+   - `/Users/zhanghang/meican/web-sdk-raven/src/pages/sftools/const/api.js` (`/v1/planet/*`, `/v1/developer-team/*` 等)
+
+### Dependency Boundary
+- Host 页面：`planet-ops-frontend`
+- Embedded 页面实现：`web-sdk-raven` (仅 sftools 范围)
+- Backend：planet 相关 API
+
+### Failure Hotspots
+1. token/header 未正确注入导致鉴权失败。
+2. `targetRoute.page` 与 routeMap 不一致导致落不到目标工具页。
+3. host 与 iframe 通信异常（`postMessage` 事件未收到或 close 事件未处理）。
+4. 环境代理前缀不一致（如 `/napi`、`/api/sftools`）导致接口 404/403。

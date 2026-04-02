@@ -32,6 +32,7 @@ Each domain should maintain:
 2. Weekly merge findings into target domain docs.
 3. Keep routing docs and script contracts consistent after each merge.
 4. Include environment scope (`sandbox` / `production` / `prod`) when relevant.
+5. Follow `../domains/development/code-distillation-method.md` when turning code reading into durable knowledge.
 
 ## New Repository Intake Protocol
 When user provides a new project path:
@@ -39,6 +40,7 @@ When user provides a new project path:
 2. Inspect layout, README, Makefile/CI/docker/argo/config, and interface files.
 3. Extract purpose, runtime model, integration points, and debug entrypoints.
 4. Persist findings before using them in advice.
+5. Prefer stable facts from entry files, `boot.go`, `internal/domain/*`, proto imports, and manifests.
 
 ## Script Rules
 1. Scripts are read-only by default.

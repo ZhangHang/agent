@@ -1,0 +1,5 @@
+version: 1
+interface:
+  display_name: Logclick Debug
+  short_description: Query logs with logclick, prefer JSON+jq, and pivot from trace id to proto-aware debugging.
+  default_prompt: Use logclick query run to inspect logs, prefer SQL-first queries and --json+jq when extracting gRPC payloads or trace ids, then suggest the next debug step.

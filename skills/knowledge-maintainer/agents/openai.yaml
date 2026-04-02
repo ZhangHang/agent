@@ -1,0 +1,5 @@
+version: 1
+interface:
+  display_name: Knowledge Maintainer
+  short_description: Convert a real investigation into durable knowledge, minimal skill updates, and changelog entries.
+  default_prompt: Update the shared knowledge base after real execution. Keep durable facts in domain docs, keep skills thin, put concrete evidence in an inbox case note, and record the change in the changelog.
